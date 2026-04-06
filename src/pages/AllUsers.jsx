@@ -33,7 +33,7 @@ const AllUsers = () => {
 
     useEffect(() => {
         fetchUsers();
-    }, []);
+    });
 
     const toggleExpand = (index) => {
         setExpandedIndexes(prev => 

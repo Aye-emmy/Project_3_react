@@ -8,7 +8,7 @@ export const appSlice = createSlice({
 
     reducers:{
         incCount:()=>{
-            state.count++
+            // state.count++
         }
     }
 })

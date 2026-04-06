@@ -31,7 +31,7 @@ const UserDetails = () => {
 
     useEffect(() => {
         getUserDetails();
-    }, []);
+    });
 
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this user? This action is permanent.")) {
