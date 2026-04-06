@@ -13,7 +13,8 @@ import AllReceipts from './pages/AllReceipts'
 import ReceiptDetails from './pages/ReceiptDetails'
 import UserDetails from './pages/UserDetails'
 import Withdraw from './pages/Withdraw'
-import Signup from './pages/SIgnUp'
+import Signup from './pages/Signup'
+
 
 
 
