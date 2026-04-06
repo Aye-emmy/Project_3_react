@@ -1,13 +1,13 @@
+import React, { useState } from 'react'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const SignUp = () => {
+
+const Signup = () => {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
-
     let formik = useFormik({
         initialValues: {
             fullName: "",
@@ -26,7 +26,8 @@ const SignUp = () => {
             password: yup.string().required("Password is required").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character"),
             policy: yup.bool().oneOf([true], 'Terms and Policy must be Agreed'),
             role: yup.string().oneOf(['user', 'admin'], 'Please select a role').required('Selecting a role is required'),
-            adminCode: yup.string().when('role', {is: 'admin',then: (schema) => schema.required('Admin code is required').oneOf(['1234'], 'Incorrect Admin Code'),otherwise: (schema) => schema.notRequired(),
+            adminCode: yup.string().when('role', {
+                is: 'admin', then: (schema) => schema.required('Admin code is required').oneOf(['1234'], 'Incorrect Admin Code'), otherwise: (schema) => schema.notRequired(),
             })
         }),
 
@@ -46,7 +47,7 @@ const SignUp = () => {
                 }
 
                 alert(response.data.message)
-                navigate('/login'); 
+                navigate('/login');
             } catch (error) {
                 console.log(error);
                 alert('User Creation Error')
@@ -134,7 +135,7 @@ const SignUp = () => {
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.password}
                                             />
-                                            
+
                                             <button
                                                 type="button"
                                                 onClick={togglePasswordVisibility}
@@ -147,7 +148,7 @@ const SignUp = () => {
                                             {formik.touched.password && formik.errors.password && (
                                                 <small className="text-danger d-block mt-1">{formik.errors.password}</small>
                                             )}
-                                            
+
                                         </div>
                                     </div>
                                     {/* Role */}
@@ -298,4 +299,5 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+
+export default Signup

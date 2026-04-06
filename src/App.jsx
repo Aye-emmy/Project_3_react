@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Transfer from './pages/Transfer'
 import Receipt from './pages/Receipt'
@@ -14,6 +13,8 @@ import AllReceipts from './pages/AllReceipts'
 import ReceiptDetails from './pages/ReceiptDetails'
 import UserDetails from './pages/UserDetails'
 import Withdraw from './pages/Withdraw'
+import Signup from './pages/SIgnUp'
+
 
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
       <Routes>
 
         <Route index element={<Home></Home>}></Route>
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/login" element={<Login />} />
 
         <Route element={<Authguard />}>
